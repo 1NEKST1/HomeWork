@@ -8,30 +8,53 @@ int main()
 { 
     setlocale(LC_ALL, "rus");
     //№1
-    //int R1, R2, R3;
-    //cin >> R1;
-    //cin >> R2;
-    //cin >> R3;
-    //cout << "R0=" << 1 / R1 + 1 / R2 + 1 / R3;
-
+    /*float sec;
+    cout << "Введите время:";
+    cin >> sec;
+    cout << sec / 60 << "минут" << endl;
+    cout << sec / 3600 << "часов";*/
+    
     //№2
-  /*  const double pi = 3.14;
-    double S, L, R;
-    cout << "Введите длину окружности: ";
-    cin >> L;
-    R = L / (pi *2);
-    S = pi * R * R;
-    cout << "S = " << S;*/
-        
+   /* double r;
+    int rubley, kopeek;
+    cout << "Введите дробное число:" << endl;
+    cin >> r;
+    rubley = r;
+    kopeek = (r - rubley) * 100;
+    cout << rubley << " рублей " << kopeek << "копеек";*/
+
     //№3
-    /*float v, t, a;
-    cout << "Введите v:";
-    cin >> v;
-    cout << "Введите a:";
-    cin >> a;
-    cout << "Введите t:";
-    cin >> t;
-    cout << "s = " << v * t + (a * t * t) / 2;*/
+  /*  int d, a;
+    cout << "Введите количесвто дней:" << endl;
+    cin >> d;
+    a = d % 7;
+    cout << "Введите количесвто дней:" << endl;
+    cout << d / 7 << " week " << a << " day ";*/
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //№3
+
+
+
+
+
 
 
     
