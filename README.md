@@ -1,7 +1,7 @@
 # HomeWork
 For my homework of c++
 
-### - [Домашняя работа №1 (14.02)](https://github.com/1NEKST1/HomeWork/commit/ce4f98ea250d2d708931c4722e4d4b2057595863)
+###  [Домашняя работа №1 (14.02)](https://github.com/1NEKST1/HomeWork/commit/ce4f98ea250d2d708931c4722e4d4b2057595863)
 
 ### [Домашняя работа №2 (19.02)](https://github.com/1NEKST1/HomeWork/commit/e507b4d225a3dce4b481134d29b44c8d3a4abc2e)
 
