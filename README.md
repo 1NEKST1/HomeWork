@@ -19,4 +19,4 @@ For my homework of c++
 
 ### [Домашняя работа  (25.03)](https://github.com/1NEKST1/HomeWork/blob/main/TryHard6.cpp)
 
-
+### [Домашняя работа  (27.03)](https://github.com/1NEKST1/HomeWork/blob/main/TryHard7.cpp)
