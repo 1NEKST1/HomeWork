@@ -23,4 +23,5 @@ For my homework of c++
 
 ### [Домашняя работа  (15.04)](https://github.com/1NEKST1/HomeWork/blob/main/TryHard8.cpp)
 
+### [Домашняя работа  (22.04)](https://github.com/1NEKST1/HomeWork/blob/main/David.cpp)
 
