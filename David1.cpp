@@ -3,7 +3,7 @@
 using namespace std;
 // Добавление элемента в конец массива по индексу и вывод ступенчатого массива.
 
-void addElement(int**& arr, int rowIndex, int num) {
+void addElement(int** &arr, int rowIndex, int num) {
     int size = _msize(arr[rowIndex]) / sizeof(arr[rowIndex][0]);
     int* buf = new int[size + 1];
     for (int i = 0;i < size;i++) {
