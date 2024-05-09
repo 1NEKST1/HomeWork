@@ -27,5 +27,6 @@ For my homework of c++
 
 ### [Домашняя работа  (24.04)](https://github.com/1NEKST1/HomeWork/blob/main/David1.cpp)
 
+### [Домашняя работа  (06.05)](https://github.com/1NEKST1/HomeWork/blob/main/David2.cpp)
 
 
