@@ -5,46 +5,38 @@
 #include "windows.h"
 #include <iostream>
 using namespace std;
-void showFile(string path) {
-    ifstream in(path);
-    if (in.is_open()) {
-        string str;
-        while (getline(in, str)) {
-            cout << str << endl;
-
+void quickSort(int* arr, int left, int right) {
+    if (left >= right) return;
+    int marker = left - 1;
+    for (int curIndex = left; curIndex <= right; curIndex++) {
+        if (arr[curIndex] <= arr[right]) {
+            marker++;
+            if (curIndex > marker) swap(arr[curIndex], arr[marker]);
         }
-
     }
-    in.close();
-}
-void copyFile(string path, int a) {
-    ifstream in(path);
-    if (in.is_open()) {
-        ofstream out;
-        out.open("h.txt");
-        string str;
-        int s = 0;
-        while (getline(in, str) && a != s) {
-            out << str << endl;
-            s++;
-        }
-        in.close();
-        cout << "ФАЙЛ СКОПИРОВАН";
-    }
-    else {
-        cout << "ФАЙЛ НЕ НАЙДЕН!";
-    }
-    in.close();  
+    quickSort(arr, left, marker - 1);
+    quickSort(arr, marker + 1, right);
 
 }
+void showArray(int* arr) {
+    int size = _msize(arr) / sizeof(arr[0]);
+    for (int i = 0;i < size;i++) {
+        cout << arr[i] << ' ';
+        
+    }
+    
+}
+
 int main()
 {
-
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-    copyFile("hm.txt", 2);
+    srand(time(NULL));
+    int row = 4;
+    int col = 4;
+    int* array = new int[10] {3, 2, 4, 0, 1, 8, 7, 6, 5, 5};
+    showArray(array);
     cout << endl;
-    showFile("h.txt");
-
+    quickSort(array, 0, 9);
+    showArray(array);
+    
 
 }
