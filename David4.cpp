@@ -4,82 +4,6 @@
 #include "windows.h"
 #define random(min, max) min + rand() % (max - min + 1) 
 using namespace std;
-//int numStr(string path) {
-//    int n = 0;
-//    ifstream in(path);
-//    if (in.is_open()) {
-//        string str;
-//        while (getline(in, str)) {
-//            n++;
-//        }
-//    
-//    }
-//    return n;
-//}
-//
-//void initArr(string path, string* arr) {
-//    int s = 0, b = 0;
-//    ifstream in(path);
-//    if (in.is_open()) {
-//        string str;
-//        while (!in.eof()) {
-//            str = "";
-//            getline(in, str, '.');
-//            if (b % 2 == 1) {
-//                arr[s++] = str;
-//            }
-//            b++;
-//        }
-//
-//    }
-//}
-//void showArr(string* arr, int& n) {
-//    if (n == 0) n++;
-//    for (int i = 0; i < n-1; i++) {
-//        cout << i + 1 << '.' << arr[i] << endl; 
-//    }
-//    
-//}
-//
-//void addTask(string* arr, string str, int& n) {
-//    arr[n-1] = str;
-//    n++;
-//}
-//void initFile(string* arr, string path, int &n) {
-//    ofstream out(path);
-//    if (out.is_open()) {
-//        for (int i = 0; i < n-1; i++) {
-//            out << i+1 << '.' << arr[i] << endl;
-//        }
-//    }
-//
-//    }
-//    
-//    
-//
-//void delStr(string* &arr, int& n, int a) {
-//    string* buf = new string[n];
-//    for (int i = 0,j = 0; i < n; i++, j++) {
-//        if (i == a-1) i++;
-//        buf[j] = arr[i];
-//    }
-//    n--;
-//    delete[] arr;
-//    arr = buf;
-//
-//    
-//}
-//void del(string*& arr) {
-//    delete[] arr;
-//}
-struct Point {
-    int x;
-    int y;
-    string color;
-    Point() {};
-    Point(int a, int b, string color) : x(a), y(b), color(color) {};
-
-};
 struct Student {
     string name;
     int age;
@@ -177,74 +101,13 @@ int main()
     setlocale(LC_ALL, "rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    //    int size = numStr("task.txt");
-    //    string* array = new string[10];
-    //    initArr("task.txt", array);
-    //    //showArr(array, size);
-    //    
-    //
-    //    int choice;
-    //    
-    //    int a = 0;
-    //    while (a == 0) {
-    //        cout << "Что делаем? \n 1 - добавить \n 2 - удалить \n 3 - вывести \n 4 - очистить \n 0 - Выход" << endl;
-    //        cin >> choice;
-    //        switch (choice) {
-    //        case 0:
-    //        {
-    //            cout << endl;
-    //            cout << "Выход";
-    //            initFile(array, "task.txt", size);
-    //            a++;
-    //            break;
-    //        }
-    //        case 1:
-    //        {
-    //            string str;
-    //            cout << "Введите задачу:";
-    //            cin >> str;
-    //            addTask(array, str, size);
-    //            cout << "Элемент добавлен";
-    //            system("cls");
-    //            break;
-    //        }
-    //        case 2:
-    //        {
-    //            int s;
-    //            cout << "Какую задачу удалить?:";
-    //            cin >> s;
-    //            delStr(array, size, s);
-    //            cout << endl;
-    //            cout << "Строка удалена!";
-    //            system("cls");
-    //            break;
-    //        }
-    //        case 3:
-    //            cout << endl;
-    //            showArr(array, size);
-    //            break;
-    //        case 4:
-    //            del(array);
-    //            size = -1;
-    //            break;
-    //
-    //        default:
-    //            break;
-    //
-    //        }
-    //    }
     int size = 3;
-
 
     Student s1("Vladimir", 16, 4.2, 4326);
     Student s2("Arsen", 17, 4.3, 3289);
     Student s3("Vadim", 17, 4.4, 9007);
     Student* st = new Student[size]{ s1, s2, s3 };
 
-
-
-    /*oneSt(s1);
-    cout << endl;*/
     cout << "Все пользователи:" << endl;
     print(st, size);
     cout << endl;
@@ -313,19 +176,7 @@ int main()
             break;
         }
 
-        //havg(st, size);
-        //cout << endl;
-        //cout << "Введите id пользователя:";
-        //cin >> id;
-        //idPrint(st, size, id);
-        //cout << endl;
-        //cout << "Введите id пользователя, которого надо удалить:";
-        //cin >> idDel;
-        //delId(st, size, idDel);
-        //cout << endl;
-        //print(st, size);
-        //addUser(st, size);
-        //print(st, size);
+
 
 
 
