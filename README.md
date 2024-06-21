@@ -36,3 +36,5 @@ For my homework of c++
 ### [Домашняя работа  (20.05)](https://github.com/1NEKST1/HomeWork/blob/main/David5.cpp)
 
 ### [Домашняя работа  (22.05)](https://github.com/1NEKST1/HomeWork/blob/main/David4.cpp)
+
+### [Домашняя работа  (14.06)](https://github.com/1NEKST1/HomeWork/blob/main/TryHard10.cpp)
