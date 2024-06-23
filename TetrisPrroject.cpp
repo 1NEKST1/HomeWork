@@ -24,21 +24,7 @@ void showArr(string* arr, int size) {
         cout << endl;
     }
 }
-//void key() {
-//    char key;
-//    while (true) {
-//        key = _getch();
-//        if (key == -32) key = _getch();
-//        if (key == 100) right(mapArr, size);
-//        if (key == 97) left(mapArr, size);
-//        if (key == 82) {
-//            clear();
-//            showArr(mapArr, size);
-//        }
-//
-//    }
-//    _getch();
-//}
+
 void initStrArr(string*& arr, int size) {
     for (int i = 0;i < size;i++) {
         arr[i] = "";
@@ -97,12 +83,9 @@ void game(string*& arr, int size,int& rs) {
     else if (randBr() == 5) r1 = p5.r1, r2 = p5.r2, r3 = p5.r3, r4 = p5.r4, c1 = p5.c1, c2 = p5.c2, c3 = p5.c3, c4 = p5.c4;
     else if (randBr() == 6) r1 = p6.r1, r2 = p6.r2, r3 = p6.r3, r4 = p6.r4, c1 = p6.c1, c2 = p6.c2, c3 = p6.c3, c4 = p6.c4;
     else r1 = p7.r1, r2 = p7.r2, r3 = p7.r3, r4 = p7.r4, c1 = p7.c1, c2 = p7.c2, c3 = p7.c3, c4 = p7.c4;
-    //arr[r1][c1] = '#';
-    //arr[r2][c2] = '#';
-    //arr[r3][c3] = '#';
-    //arr[r4][c4] = '#';
 
-    while (r4 != 18) {
+
+    while (r1 < 18 && r2 < 18 && r3 < 18 && r4 < 18) {
         showArr(arr, size);
         clear();
         clearBr(arr, r1, r2, r3, r4, c1, c2, c3, c4);
@@ -112,11 +95,13 @@ void game(string*& arr, int size,int& rs) {
         key = _getch();
         if (key == 100 ) {
         clearBr(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-        if (c1 != 22 && c2 != 22 && c3 != 22 && c4 && 22) {
-            c1++;
-            c2++;
-            c3++;
-            c4++;
+        if (r1 < 17 && r2 < 17 && r3 < 17 && r4 < 17) {
+            if (c1 != 23 && c2 != 23 && c3 != 23 && c4 != 23) {
+                c1++;
+                c2++;
+                c3++;
+                c4++;
+            }
         }
         Sleep(50);
         clear();
@@ -124,11 +109,13 @@ void game(string*& arr, int size,int& rs) {
         }
         if (key == 97) {
             clearBr(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-            if (c1 != 2 && c2 != 2 && c3 != 2 && c4 != 2) {
-                c1--;
-                c2--;
-                c3--;
-                c4--;
+            if (r1 < 17 && r2 < 17 && r3 < 17 && r4 < 17) {
+                if (c1 != 2 && c2 != 2 && c3 != 2 && c4 != 2) {
+                    c1--;
+                    c2--;
+                    c3--;
+                    c4--;
+                }
             }
             Sleep(50);
             clear();
@@ -140,10 +127,12 @@ void game(string*& arr, int size,int& rs) {
             }
             if (o == 22) rs += 20;
         }
-        
+        cout << endl << r1 << ' ' << r2  << ' ' << r3 << ' ' << r4 << endl;
         Sleep(50);
         clear();
+        
     }
+    
 }
 
 int main()
@@ -157,8 +146,9 @@ int main()
     clear();
     while (true) {
         game(mapArr, sizeArr, res);
-        showArr(mapArr, sizeArr);
+        //showArr(mapArr, sizeArr);
     }
+
     cout << endl << endl;
 
     // W - 119, A - 97, S - 115, D - 100, R - 82
