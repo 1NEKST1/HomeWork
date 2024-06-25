@@ -1,12 +1,12 @@
 ﻿#include <iostream>
-#include <fstream>
+#include <fstream>s
 #include <string>
-#include "windows.h"
+#include <windows.h>
 #include <conio.h>
-
 #define random(min, max) min + rand() % (max - min + 1) 
 
 using namespace std;
+
 int sizeArr = 20;
 string* mapArr = new string[sizeArr];
 struct Coord {
@@ -20,16 +20,12 @@ void showArr(string* arr, int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i];
         if (i == 3) cout << "   Очки:" << res;
-        if (i == 5) cout << "   W - ПОВОРОТ, A - ВЛЕВО, D - ВПРАВО, S - ВНИЗ";
+        if (i == 5) cout << "   A - ВЛЕВО, D - ВПРАВО, S - ВНИЗ";
         cout << endl;
     }
 }
 
-void initStrArr(string*& arr, int size) {
-    for (int i = 0; i < size; i++) {
-        arr[i] = "";
-    }
-}
+
 void initMap(string*& arr) {
 
     arr[0] = "!!======================!!";
@@ -67,8 +63,8 @@ void bricks(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, 
     arr[++r4][c4] = '#';
 }
 
-void right(string*& arr,int& r1, int& r2, int& r3, int& r4,int& c1, int& c2, int& c3, int& c4,int size) {
-   
+void right(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, int& c3, int& c4) {
+
     if (c1 != 23 && c2 != 23 && c3 != 23 && c4 != 23) {
         clearBr(arr, r1, r2, r3, r4, c1, c2, c3, c4);
         c1++;
@@ -79,9 +75,10 @@ void right(string*& arr,int& r1, int& r2, int& r3, int& r4,int& c1, int& c2, int
 
 
 
+
 }
 
-void left(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, int& c3, int& c4, int size) {
+void left(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, int& c3, int& c4) {
     if (c1 != 2 && c2 != 2 && c3 != 2 && c4 != 2) {
         clearBr(arr, r1, r2, r3, r4, c1, c2, c3, c4);
         c1--;
@@ -122,38 +119,94 @@ void game(string*& arr, int size, int& rs) {
         if (key == 100 && r4 < 18) {
             switch (s) {
             case 1:
-                if (arr[r3][c3 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r3 + 1][c3 + 1] != '#' && arr[r4 + 1][c4 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 2:
-                if (arr[r2][c2 + 1] != '#' && arr[r4][c4 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r2 + 1][c2 + 1] != '#' && arr[r4 + 1][c4 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 3:
-                if (arr[r1][c1+1] != '#' && arr[r2][c2 + 1] != '#' && arr[r3][c3 + 1] != '#' && arr[r4][c4 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 + 1] != '#' && arr[r2 + 1][c2 + 1] != '#' && arr[r3 + 1][c3 + 1] != '#' && arr[r4 + 1][c4 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 4:
-                if (arr[r4][c4 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r4 + 1][c4 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 5:
-                if (arr[r2][c2 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r2 + 1][c2 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 6:
-                if (arr[r1][c1 + 1] != '#' && arr[r1][c2 + 2] != '#' && arr[r3][c3 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 + 1] != '#' && arr[r1 + 1][c2 + 2] != '#' && arr[r3 + 1][c3 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 7:
-                if (arr[r4][c4 + 1] != '#')  right(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r4 + 1][c4 + 1] != '#') {
+                    right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             }
-            
+
         }
         if (key == 97 && r4 < 18) {
             switch (s) {
             case 1:
-                if (arr[r1][c1 - 1] != '#')  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 2:
-                if (arr[r1][c1 - 1] != '#' && arr[r2][c2 - 1] != '#')  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 - 1] != '#' && arr[r2 + 1][c2 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 3:
-                if (arr[r1][c1 - 1] != '#' && arr[r2][c2 - 1] != '#' && arr[r3][c3 - 1] != '#' && arr[r4][c4 - 1] != '#')  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 - 1] != '#' && arr[r2 + 1][c2 - 1] != '#' && arr[r3 + 1][c3 - 1] != '#' && arr[r4 + 1][c4 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 4:
-                if (arr[r1][c1 - 1] != '#')  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 5:
-                if (arr[r3][c3 - 1] != '#')  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r3 + 1][c3 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 6:
-                if (arr[r4][c4 - 1] != '#' )  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r4 + 1][c4 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             case 7:
-                if (arr[r1][c1 - 1] != '#' && arr[r2][c2 - 1] != '#' && arr[r3][c3 - 1] != '#')  left(arr, r1, r2, r3, r4, c1, c2, c3, c4, size);
+                if (arr[r1 + 1][c1 - 1] != '#' && arr[r2 + 1][c2 - 1] != '#' && arr[r3 + 1][c3 - 1] != '#') {
+                    left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
+
+                }
+                break;
             }
 
         }
@@ -163,19 +216,32 @@ void game(string*& arr, int size, int& rs) {
     }
 
 }
+int points(string*& arr) {
+    int full = 0;
+    int a = 0;
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 26; j++) {
+            if (arr[i][j] == '#') a++;
+        }
+        if (a == 22) {
+            full = i;
+            break;
+        }
+    }
+    return full;
+}
 
 int main()
 {
     srand(time(NULL));
     setlocale(LC_ALL, "rus");
-    //initStrArr(mapArr, size);
     initMap(mapArr);
     cout << endl;
     showArr(mapArr, sizeArr);
     clear();
     while (true) {
         game(mapArr, sizeArr, res);
-        //showArr(mapArr, sizeArr);
+        cout << endl << points(mapArr);
     }
 
     cout << endl << endl;
