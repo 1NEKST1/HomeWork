@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <fstream>
+#include <fstream>s
 #include <string>
 #include <windows.h>
 #include <conio.h>
@@ -19,15 +19,13 @@ void showArr(string* arr, int size) {
     for (int i = 0; i < size; i++) {
         cout << arr[i];
         if (i == 3) cout << "   Очки:" << res;
-        if (i == 5) cout << "   W - ПОВОРОТ, A - ВЛЕВО, D - ВПРАВО, S - ВНИЗ";
+        if (i == 5) cout << "   A - ВЛЕВО, D - ВПРАВО, S - ВНИЗ";
         cout << endl;
     }
 }
 
-void initStrArr(string*& arr, int size) {
-    for (int i = 0; i < size; i++) {
-        arr[i] = "";
-    }
+void clear(){
+    system("cls");
 }
 void initMap(string*& arr) {
 
@@ -40,9 +38,7 @@ void initMap(string*& arr) {
     arr[19] = "!!======================!!";
 
 }
-void clear() {
-    system("cls");
-}
+
 int randBr() {
     int x = random(1, 7);
     if (x == 1) return 1;
@@ -76,9 +72,6 @@ void right(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, i
         c4++;
     }
 
-
-
-
 }
 
 void left(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, int& c3, int& c4) {
@@ -90,7 +83,66 @@ void left(string*& arr, int& r1, int& r2, int& r3, int& r4, int& c1, int& c2, in
         c4--;
     }
 
+}
+int firstFigure(string* arr) {
+    int a = 0;
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 26; j++) {
+            if (arr[i][j] == '#') {
+                a = i;
+                break;
+            }
+        }
+    }
+     return a;
+}
+int points(string* arr) {
+    int full = -1;
+    int a = 0;
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 26; j++) {
+            if (arr[i][j] == '#') a++;
+        }
+        if (a == 22) {
+            full = i;
+            break;
+        }
+        a = 0;
+    }
+    if (full > -1) return full;
+    else return -1;
+}
+void deleteFullStr(string*& arr) {
+    int index = points(arr);
+    int f = firstFigure(arr);
+    string* buf = new string[sizeArr];
+    buf[0] = "!!======================!!";
+    buf[1] = "!!                      !!";
+    buf[f] = "!!                      !!";
+    buf[19] = "!!======================!!";
+    for (int i = 2; i-1 < f; i++) {
+            buf[i] = arr[i-1];
+    }
+    for (int i = f; i+1 < 19; i++) {
+            buf[i+1] = arr[i];
+    }
 
+
+
+    delete[] arr;
+    arr = buf;
+    res += 20;
+    
+}
+bool end(string* arr) {
+    bool a = true;
+    for (int i = 0;i < 26;i++) {
+        if (arr[1][i] == '#') {
+            a = false;
+            break;
+        }
+    }
+    return a;
 }
 void game(string*& arr, int size, int& rs) {
     Coord p1(1, 1, 1, 2, 11, 12, 13, 12);
@@ -111,7 +163,7 @@ void game(string*& arr, int size, int& rs) {
     else r1 = p7.r1, r2 = p7.r2, r3 = p7.r3, r4 = p7.r4, c1 = p7.c1, c2 = p7.c2, c3 = p7.c3, c4 = p7.c4, s = 7;
 
 
-    while (r1 < 18 && r2 < 18 && r3 < 18 && r4 < 18 && arr[r4 + 1][c4] != '#' ) {
+    while (r1 < 18 && r2 < 18 && r3 < 18 && r4 < 18 && arr[r4 + 1][c4] != '#') {
         showArr(arr, size);
         clear();
         clearBr(arr, r1, r2, r3, r4, c1, c2, c3, c4);
@@ -124,46 +176,46 @@ void game(string*& arr, int size, int& rs) {
             case 1:
                 if (arr[r3 + 1][c3 + 1] != '#' && arr[r4 + 1][c4 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 2:
                 if (arr[r2 + 1][c2 + 1] != '#' && arr[r4 + 1][c4 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                   
+
                 }
                 break;
             case 3:
                 if (arr[r1 + 1][c1 + 1] != '#' && arr[r2 + 1][c2 + 1] != '#' && arr[r3 + 1][c3 + 1] != '#' && arr[r4 + 1][c4 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 4:
                 if (arr[r4 + 1][c4 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 5:
                 if (arr[r2 + 1][c2 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 6:
                 if (arr[r1 + 1][c1 + 1] != '#' && arr[r1 + 1][c2 + 2] != '#' && arr[r3 + 1][c3 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 7:
                 if (arr[r4 + 1][c4 + 1] != '#') {
                     right(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
-            }  
+            }
 
         }
         if (key == 97 && r4 < 18) {
@@ -171,70 +223,75 @@ void game(string*& arr, int size, int& rs) {
             case 1:
                 if (arr[r1 + 1][c1 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 2:
-                if (arr[r1 + 1][c1 - 1] != '#' && arr[r2 + 1][c2 - 1] != '#') {
+                if (arr[r1 + 1][c1 - 1] != '#' && arr[r3 + 1][c3 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 3:
                 if (arr[r1 + 1][c1 - 1] != '#' && arr[r2 + 1][c2 - 1] != '#' && arr[r3 + 1][c3 - 1] != '#' && arr[r4 + 1][c4 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 4:
                 if (arr[r1 + 1][c1 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 5:
                 if (arr[r3 + 1][c3 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 6:
                 if (arr[r4 + 1][c4 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             case 7:
                 if (arr[r1 + 1][c1 - 1] != '#' && arr[r2 + 1][c2 - 1] != '#' && arr[r3 + 1][c3 - 1] != '#') {
                     left(arr, r1, r2, r3, r4, c1, c2, c3, c4);
-                    
+
                 }
                 break;
             }
 
-        } 
+        }
 
+        if (points(arr) >= 0) {
+            deleteFullStr(arr);
+        }
         clear();
 
     }
 
 }
 
+
 int main()
 {
     srand(time(NULL));
     setlocale(LC_ALL, "rus");
-    //initStrArr(mapArr, size);
     initMap(mapArr);
     cout << endl;
     showArr(mapArr, sizeArr);
     clear();
-    while (true) {
+    bool off = true;
+    while ( off == true) {
         game(mapArr, sizeArr, res);
-        //showArr(mapArr, sizeArr);
+        off = end(mapArr);
     }
-
-    cout << endl << endl;
+    clear();
+    cout << "Очки:" << res;
+  
 
     // W - 119, A - 97, S - 115, D - 100, R - 82
 
