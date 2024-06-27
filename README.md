@@ -42,3 +42,5 @@ For my homework of c++
 ### [Домашняя работа  (17.06)](https://github.com/1NEKST1/HomeWork/blob/main/HomeWork11.cpp)
 
 ### [Домашняя работа  (19.06)](https://github.com/1NEKST1/HomeWork/blob/main/Exam.cpp)
+
+### [Домашняя работа  (10.06)](https://github.com/1NEKST1/HomeWork/blob/main/Shop.cpp)
